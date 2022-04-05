@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'react-native';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 
@@ -20,6 +21,8 @@ import { AppRoutes } from './src/routes/app.routes';
 import { Register } from './src/screens/Register';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { SingIn } from './src/screens/SingIn';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -36,7 +39,8 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <AppRoutes />
+          <StatusBar barStyle="light-content"/>
+          <SingIn />
         </NavigationContainer>
       </ThemeProvider>
     </GestureHandlerRootView>
