@@ -23,6 +23,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { SingIn } from './src/screens/SingIn';
 
+import { AuthProvider } from './src/hooks/auth';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -39,8 +40,12 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <StatusBar barStyle="light-content"/>
-          <SingIn />
+          <StatusBar barStyle="light-content" />
+
+          <AuthProvider>
+            <SingIn />
+          </AuthProvider>
+        
         </NavigationContainer>
       </ThemeProvider>
     </GestureHandlerRootView>
